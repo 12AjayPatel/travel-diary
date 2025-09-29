@@ -12,6 +12,11 @@ import { fileURLToPath } from "url"
 
 dotenv.config()
 
+
+const allowedOrigins = [
+  "http://localhost:5173", // dev
+  "https://your-app-name.vercel.app", // Vercel production
+]
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -26,7 +31,7 @@ const app = express()
 // Enable CORS for frontend (Replace with your frontend URL)
 app.use(
   cors({
-    origin: "http://localhost:5173", //frontend URL
+    origin: allowedOrigins,//frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow CRUD operations
     credentials: true, // Allow cookies & authorization headers
   })
