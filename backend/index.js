@@ -15,7 +15,7 @@ dotenv.config()
 
 const allowedOrigins = [
   "http://localhost:5173", // dev
-  "https://your-app-name.vercel.app", // Vercel production
+  "https://travel-diary-frontend-ten.vercel.app", // Vercel production
 ]
 mongoose
   .connect(process.env.MONGO_URI)
